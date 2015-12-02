@@ -1,0 +1,16 @@
+{
+  "name": "notes_app",
+  "version": "1.0.0",
+  "description": "An app that allows users to organize and structure their notes",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Maggie Love",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.4.8",
+    "express": "^4.13.3",
+    "underscore": "^1.8.3"
+  }
+}
