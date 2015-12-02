@@ -24,16 +24,21 @@ db.once('open', (callback) => {
   console.log('Mongoose connected.');
 });
 
-let userRoutes = require('./controllers/users_controller');
-let noteRoutes = require('./controllers/notes_controller');
+app.get('/', (req, res) => {
+  res.send('hello!');
+})
+
+
+// let userRoutes = require('./controllers/users_controller');
+// let noteRoutes = require('./controllers/notes_controller');
 
 //Register routes
-app.use('/users', userRoutes); //all routes starting with /users in users_controller
-app.use ('/notes', noteRoutes);  //all routes starting with /notes in notes_controller
+// app.use('/users', userRoutes); //all routes starting with /users in users_controller
+// app.use ('/notes', noteRoutes);  //all routes starting with /notes in notes_controller
 
 let server = app.listen(process.env.PORT || 3000, () => {
   let host = server.address().address;
   let port = server.address().port;
   console.log('express running', host, port);
-  
+
 })
