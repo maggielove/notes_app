@@ -24,9 +24,10 @@ db.once('open', (callback) => {
   console.log('Mongoose connected.');
 });
 
-app.get('/', (req, res) => {
-  res.send('hello!');
-})
+// app.get('/', function(req, res) {
+//   console.log('hit /');
+//   res.send('hello!');
+// })
 
 
 // let userRoutes = require('./controllers/users_controller');
