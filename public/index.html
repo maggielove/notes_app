@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="scripts/angular-material/angular-material.css">
 
+    <link rel="stylesheet" href="scripts/angular-material/angular-material.css">
     <script src="scripts/angular/angular.js"></script>
     <!-- try without /angular in front of file? -->
     <script src="scripts/angular-material/angular-material.js"></script>
@@ -17,6 +17,15 @@
   </head>
   <body>
     <section ng-controller="NotesController as notes">
+      <h1>All Notes</h1>
+      <p>{{1 + 5}}</p>
+      <!--  ng-repeat in a div? -->
+      <ul>
+        <li ng-repeat="note in notes.all">
+          <h2>{{note.title}}</h2>
+          <div>{{note.body}}<div>
+        </li>
+    </ul>
 
 
     </section>
