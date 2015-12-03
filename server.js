@@ -26,12 +26,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', express.static(__dirname + '/public'));
 app.use('/scripts', express.static(__dirname + '/node_modules'));
 app.use('/', routes);
-// app.use('/users', routes);
-
-// app.get('/', function(req, res) {
-//   console.log('hit /');
-//   res.send('hello!');
-// })
 
 let server = app.listen(process.env.PORT || 3000, () => {
   let host = server.address().address;

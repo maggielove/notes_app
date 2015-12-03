@@ -5,18 +5,21 @@ var express = require('express'),
     // methodOverride = require('method-override'); //for the POST route
 
 var notesController = require('../controllers/notes');
+var usersController = require('../controllers/users');
 
 // http://localhost:3000/notes
 router.route('/notes')
 
   // all HTTP verbs associated with notes route
-  // .get( function(req, res){
-  //   console.log('hit /notes');
-  // })
-.get(notesController.findAll)
+  .get(notesController.findAll)
 
+// router.route('/users')
+  // .get(usersCtonroller.findAll)
 
-    // res.send('hullo');
+///// WILL EVERY ROUTE BENEATH THIS BE RESTRICTED TO USERS WITH TOKENS?//////
+router.route('/users/authenticate')
+  .post(usersController.authenticate)
+
 
 
 
