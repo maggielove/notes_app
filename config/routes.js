@@ -4,13 +4,16 @@ var express = require('express'),
     bodyParser = require('body-parser') //for the POST route
     // methodOverride = require('method-override'); //for the POST route
 
-var notesController = require('../controllers/notes_controller');
+var notesController = require('../controllers/notes');
 
 // http://localhost:3000/notes
 router.route('/notes')
 
   // all HTTP verbs associated with notes route
-  .get(notesController.findAll)
+  // .get( function(req, res){
+  //   console.log('hit /notes');
+  // })
+.get(notesController.findAll)
 
 
     // res.send('hullo');
