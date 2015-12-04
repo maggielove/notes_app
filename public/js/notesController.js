@@ -11,7 +11,8 @@ function NotesController($http){
   // CRUD for notes
   // self.addNote = addNote;
   // self.newNote = {};
-  // self.viewNote = viewNote;
+  self.viewNote = viewNote;
+  self.single = {};
   // self.getNotes = getNotes;
   // self.deleteNote = deleteNote;
 
@@ -23,6 +24,19 @@ function NotesController($http){
       .get('http://localhost:3000/notes')
       .then(function(response){
         self.all = response.data.notes;
+      });
+  };
+
+  // view a single note
+  function viewNote(){
+    $http
+      // route hard-corded for now
+      .get('http://localhost:3000/notes/5660b8644d26a79cb5566ff6')
+      .then(function(response){
+        console.log(response.data.note)
+        self.single = response.data.note;
+
+        // return self.single = response.data.note;
       });
   };
 

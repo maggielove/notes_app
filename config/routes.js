@@ -13,10 +13,16 @@ router.route('/notes')
   // all HTTP verbs associated with notes route
   .get(notesController.findAll)
 
+// view an individual note
+router.route('/notes/:id')
+  .get(notesController.showSingle)
+  
+
 // router.route('/users')
   // .get(usersCtonroller.findAll)
 
 ///// WILL EVERY ROUTE BENEATH THIS BE RESTRICTED TO USERS WITH TOKENS?//////
+// user log in route
 router.route('/users/authenticate')
   .post(usersController.authenticate)
 
