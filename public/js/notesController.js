@@ -10,10 +10,10 @@ function NotesController($http){
   self.all = [];
   // CRUD for notes
   // self.addNote = addNote;
-  // self.newNote = {};
+  self.newNote = {};
   self.viewNote = viewNote;
   self.single = {};
-  // self.getNotes = getNotes;
+  self.getNotes = getNotes;
   // self.deleteNote = deleteNote;
 
   //call getNotes here so that on page load, this information will be available.
@@ -33,12 +33,30 @@ function NotesController($http){
       // route hard-corded for now
       .get('http://localhost:3000/notes/5660b8644d26a79cb5566ff6')
       .then(function(response){
-        console.log(response.data.note)
-        self.single = response.data.note;
+        console.log(response)
+        self.single = response.data.note[0];
 
         // return self.single = response.data.note;
       });
   };
+
+  function addNote(){
+    $http
+      .post('http://localhost:3000/notes')
+      .then(function(data) {
+        console.log(data)
+      })
+  }
+
+
+
+// function test() {
+//   $http
+//   .get('http://localhost:3000/notes')
+//   .then(function(response) {
+//     console.log('testing testing');
+//   })
+// }
 
 
 

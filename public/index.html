@@ -35,7 +35,11 @@
      <!-- <ul>
           <li ng-repeat="note in notes.all"> -->
           <button ng-click="notes.viewNote()">View note</button>
-          <!-- <div>{{note.title}}</div> -->
+          <button ng-click="notes.addNote()">Add Note</button>
+          <div>{{notes.single.title}}</div>
+          <div>{{notes.single.body}}</div>
+          <!-- <div>{{notes.single.note[0].title}}</div> -->
+          <!-- <div>{{notes.single.title}}</div> -->
            <!-- </li> -->
            <!-- <div>{{ note.title }}</div> -->
       <!-- </ul> -->

@@ -13,10 +13,13 @@ router.route('/notes')
   // all HTTP verbs associated with notes route
   .get(notesController.findAll)
 
+  //add a new note
+  .post(notesController.writeNote)
+
 // view an individual note
 router.route('/notes/:id')
   .get(notesController.showSingle)
-  
+  // console.log('response.data.note: ' + response.data.note)
 
 // router.route('/users')
   // .get(usersCtonroller.findAll)

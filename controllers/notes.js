@@ -18,10 +18,23 @@ function showSingle(request, response) {
     if (error) response.json({ message: 'Unable to find the note you are looking for.'});
 
     response.json({note: note })
+    console.log("note" + note)
   })
+}
+
+// write a new note
+function writeNote(request, response) {
+  let note = new Note(response.body);
+
+  note.save(function(error) {
+    if (error) throw error;
+    response.json({note: note})
+    console.log('hit /notes post');
+  });
 }
 
 module.exports = {
   findAll: findAll,
-  showSingle: showSingle
+  showSingle: showSingle,
+  writeNote: writeNote
 }
