@@ -17,33 +17,25 @@
   </head>
   <body>
     <h1>Notes App</h1>
-    <!-- <section id="all-notes" ng-controller="NotesController as notes">
-      <h2>All Notes</h2> -->
+    <section id="all-notes" ng-controller="NotesController as notes">
+      <h2>All Notes</h2>
 
       <!--  ng-repeat in a div? -->
-      <!-- <ul> -->
-        <!-- <p>{{notes: notes}}</p> -->
-        <!-- <li ng-repeat="note in notes.all ">
+      <ul>
+        <li ng-repeat="note in notes.all ">
           <h3>{{note.title}}</h3>
           <div>{{note.body}}<div>
         </li>
       </ul>
-    </section> -->
+    </section>
 
-    <section id="show-note" ng-controller="NotesController as notes">
-      <!-- directive? element? notes.viewNote()?  -->
-     <!-- <ul>
-          <li ng-repeat="note in notes.all"> -->
+   <section id="show-note" ng-controller="NotesController as notes">
           <button ng-click="notes.viewNote()">View note</button>
           <button ng-click="notes.addNote()">Add Note</button>
-          <div>{{notes.single.title}}</div>
-          <div>{{notes.single.body}}</div>
-          <!-- <div>{{notes.single.note[0].title}}</div> -->
-          <!-- <div>{{notes.single.title}}</div> -->
-           <!-- </li> -->
-           <!-- <div>{{ note.title }}</div> -->
-      <!-- </ul> -->
-      <!-- <p ng-model="notes.viewNote()"></p> -->
+          <div>
+            <h3>{{notes.single.title}}</h3>
+            {{notes.single.body}}
+          </div>
     </section>
 
 
