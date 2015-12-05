@@ -6,6 +6,15 @@ ul {
   list-style-type: none;
 }
 
+/*view a single note*/
+#show-note {
+  margin-bottom: 100px;
+}
+
+#edit-buttons {
+  margin-top: 20px;
+}
+
 /*New note form */
 #note-form {
   margin-top: 50px;

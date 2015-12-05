@@ -2,14 +2,19 @@
 <html ng-app="notesApp">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="css/style.css">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link rel="stylesheet" href="scripts/angular-material/angular-material.css">
     <script src="scripts/angular/angular.js"></script>
     <script src="scripts/angular-material/angular-material.js"></script>
     <script src="js/app.js"></script>
     <script src="js/usersController.js"></script>
     <script src="js/notesController.js"></script>
+    <!-- <script src="js/bootstrap.min.js"></script> -->
 
     <title></title>
   </head>
@@ -22,24 +27,32 @@
       <ul>
         <li ng-repeat="note in notes.all ">
           <h3>{{note.title}}</h3>
-          <div>{{note.body}}<div>
+          <!-- <div>{{note.body}}<div> -->
         </li>
       </ul>
     </section>
 
    <section id="show-note" ng-controller="NotesController as notes">
-          <button ng-click="notes.viewNote()">View note</button>
+          <!-- Display the note and editing options -->
+          <button ng-click="notes.viewNote(); showbuttons=true">View note</button>
           <div>
             <h3>{{notes.single.title}}</h3>
             {{notes.single.body}}
           </div>
-
-          <!-- This button should make a form pop up. -->
-          <button ng-click="showform=true">Add Note</button>
+          <div id="edit-buttons" ng-show="showbuttons">
+            <span><button ng-click="" >Edit</button>
+            </span><span><button ng-click="">New Note</button>
+            </span><span><button ng-click="notes.deleteNote()">Delete</button></span>
+          <div>
+          <!-- <span class="glyphicon glyphicon-trash"></span> -->
           <!-- <h3>{{notes.newNote.title}}</h3>
           <div>
             {{notes.newNote.body}}
           </div> -->
+    </section>
+    <section id="new-note" ng-controller="NotesController as notes">
+        <!-- This button should make a form pop up. -->
+        <button ng-click="showform=true">Add Note</button>
           <!-- use ng-show to only show form if "Add Note" button is clicked. -->
           <form id="note-form" ng-show="showform" ng-submit="notes.addNote()">
             <div>
@@ -55,8 +68,8 @@
               <input type="submit" id="save-button" value="Save Note" class="md-button md-raised">
             </div>
           </form>
-
     </section>
+
 
 
   </body>

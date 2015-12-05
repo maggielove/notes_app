@@ -21,6 +21,8 @@ router.route('/notes/:id')
   .get(notesController.showSingle)
   // console.log('response.data.note: ' + response.data.note)
 
+  .delete(notesController.discardNote);
+
 // router.route('/users')
   // .get(usersCtonroller.findAll)
 

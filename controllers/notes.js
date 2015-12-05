@@ -34,8 +34,18 @@ function writeNote(request, response) {
   });
 }
 
+function discardNote(request, response) {
+  let id = request.params.id;
+  Note.remove({ _id: id}, function(error){
+    if (error) response.json({message: 'Unable to delete note--see error: ' + error});
+
+    response.json({ message: 'Note successfully delted'});
+  });
+}
+
 module.exports = {
   findAll: findAll,
   showSingle: showSingle,
-  writeNote: writeNote
+  writeNote: writeNote,
+  discardNote: discardNote
 }
