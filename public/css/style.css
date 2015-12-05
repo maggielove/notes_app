@@ -2,6 +2,10 @@ body {
 
 }
 
+ul {
+  list-style-type: none;
+}
+
 /*New note form */
 #note-form {
   margin-top: 50px;

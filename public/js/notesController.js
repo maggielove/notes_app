@@ -9,12 +9,14 @@ function NotesController($http){
   let self = this;
   self.all = [];
   // CRUD for notes
-  // self.addNote = addNote;
+  self.addNote = addNote;
+  // blank object that will hold form information
   self.newNote = {};
   self.viewNote = viewNote;
   self.single = {};
   self.getNotes = getNotes;
-  // self.deleteNote = deleteNote;
+  self.editNote = editNote;
+  self.deleteNote = deleteNote;
 
   //call getNotes here so that on page load, this information will be available.
   // (Other functions are called only when user selects them.)
@@ -44,25 +46,19 @@ function NotesController($http){
     $http
       .post('http://localhost:3000/notes', self.newNote)
       .then(function(response) {
-        getNotes();
-        console.log(response);
+        // getNotes();
+        // console.log('response from post: ' + response);
       });
-      self.newNote = {};
+      // self.newNote = {};
   }
 
+  function editNote(){
 
+  }
 
-// function test() {
-//   $http
-//   .get('http://localhost:3000/notes')
-//   .then(function(response) {
-//     console.log('testing testing');
-//   })
-// }
+  function deleteNote() {
 
-
-
-
+  }
 
 
 } //ends NotesController function

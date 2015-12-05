@@ -3,12 +3,10 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css">
-
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link rel="stylesheet" href="scripts/angular-material/angular-material.css">
     <script src="scripts/angular/angular.js"></script>
-    <!-- try without /angular in front of file? -->
     <script src="scripts/angular-material/angular-material.js"></script>
-    <!-- remove /angular-material folder? -->
     <script src="js/app.js"></script>
     <script src="js/usersController.js"></script>
     <script src="js/notesController.js"></script>
@@ -43,9 +41,10 @@
             {{notes.newNote.body}}
           </div> -->
           <!-- use ng-show to only show form if "Add Note" button is clicked. -->
-          <form id="note-form" ng-show="showform">
+          <form id="note-form" ng-show="showform" ng-submit="notes.addNote()">
             <div>
               <label for="title">Title</label>
+              <!-- ng-model binds our input to variable newNote  in NotesController -->
               <input type="text" id="new-note-title" ng-model='notes.newNote.title'>
             </div>
             <div>
@@ -53,7 +52,7 @@
               <textarea id="new-note-body" ng-model='notes.newNote.body'></textarea>
             </div>
             <div>
-              <button id="save-button" class="md-button md-raised" ng-click="notes.addNote()">Save</button>
+              <input type="submit" id="save-button" value="Save Note" class="md-button md-raised">
             </div>
           </form>
 
