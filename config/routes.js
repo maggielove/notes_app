@@ -2,7 +2,7 @@
 var express = require('express'),
     router = express.Router(),
     bodyParser = require('body-parser') //for the POST route
-    // methodOverride = require('method-override'); //for the POST route
+var methodOverride = require('method-override'); //lets you use PUT, DELETE where client doesn't support it.
 
 var notesController = require('../controllers/notes');
 var usersController = require('../controllers/users');

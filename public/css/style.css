@@ -1,0 +1,30 @@
+body {
+
+}
+
+/*New note form */
+#note-form {
+  margin-top: 50px;
+}
+
+#new-note-title {
+  width: 70%;
+  height: 20px;
+  display: block;
+  margin: 0 auto;
+}
+
+#new-note-body {
+  width: 70%;
+  height: 500px;
+  margin: 0 auto;
+  display: block;
+  /*position: absolute;*/
+}
+
+#save-button {
+  width: 100px;
+  height: 50px;
+  margin: 0 auto;
+  display: block;
+}

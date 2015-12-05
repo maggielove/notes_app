@@ -24,12 +24,13 @@ function showSingle(request, response) {
 
 // write a new note
 function writeNote(request, response) {
-  let note = new Note(response.body);
+  console.log('hit /notes post');
+  console.log('note json/ request.body.note: ' + request.body);
+  let note = new Note(request.body);
 
   note.save(function(error) {
-    if (error) throw error;
-    response.json({note: note})
-    console.log('hit /notes post');
+    if (error) response.json({message: 'Unable to start new note due to this error: ' + error });
+    response.json({note: note});
   });
 }
 

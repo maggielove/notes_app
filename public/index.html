@@ -31,11 +31,32 @@
 
    <section id="show-note" ng-controller="NotesController as notes">
           <button ng-click="notes.viewNote()">View note</button>
-          <button ng-click="notes.addNote()">Add Note</button>
           <div>
             <h3>{{notes.single.title}}</h3>
             {{notes.single.body}}
           </div>
+
+          <!-- This button should make a form pop up. -->
+          <button ng-click="showform=true">Add Note</button>
+          <!-- <h3>{{notes.newNote.title}}</h3>
+          <div>
+            {{notes.newNote.body}}
+          </div> -->
+          <!-- use ng-show to only show form if "Add Note" button is clicked. -->
+          <form id="note-form" ng-show="showform">
+            <div>
+              <label for="title">Title</label>
+              <input type="text" id="new-note-title" ng-model='notes.newNote.title'>
+            </div>
+            <div>
+              <label for="body">Body</label>
+              <textarea id="new-note-body" ng-model='notes.newNote.body'></textarea>
+            </div>
+            <div>
+              <button id="save-button" class="md-button md-raised" ng-click="notes.addNote()">Save</button>
+            </div>
+          </form>
+
     </section>
 
 

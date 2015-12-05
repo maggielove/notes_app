@@ -42,10 +42,12 @@ function NotesController($http){
 
   function addNote(){
     $http
-      .post('http://localhost:3000/notes')
-      .then(function(data) {
-        console.log(data)
-      })
+      .post('http://localhost:3000/notes', self.newNote)
+      .then(function(response) {
+        getNotes();
+        console.log(response);
+      });
+      self.newNote = {};
   }
 
 
