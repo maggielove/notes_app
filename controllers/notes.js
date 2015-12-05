@@ -34,12 +34,30 @@ function writeNote(request, response) {
   });
 }
 
+function updateNote(request, response){
+  let id = request.params.id;
+
+  Note.findById({_id: id}, function(error, note){
+    if(error) response.json({ message: 'Error finding note: ' + error });
+
+    if(request.body.title) note.title = request.body.title;
+    if(request.body.body) note.body = request.body.body;
+    console.log('edited title: ' + request.body.title);
+    console.log('edited body: ' + request.body.body);
+
+    note.save(function(error) {
+      if (error) response.json({ message: 'Error editing note: ' + error });
+      response.json({message: 'Note updated', note: note});
+    });
+  });
+}
+
 function discardNote(request, response) {
   let id = request.params.id;
   Note.remove({ _id: id}, function(error){
     if (error) response.json({message: 'Unable to delete note--see error: ' + error});
 
-    response.json({ message: 'Note successfully delted'});
+    response.json({ message: 'Note successfully deleted'});
   });
 }
 
@@ -47,5 +65,6 @@ module.exports = {
   findAll: findAll,
   showSingle: showSingle,
   writeNote: writeNote,
-  discardNote: discardNote
+  discardNote: discardNote,
+  updateNote: updateNote
 }

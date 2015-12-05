@@ -33,7 +33,7 @@ function NotesController($http){
   function viewNote(){
     $http
       // route hard-corded for now
-      .get('http://localhost:3000/notes/56625c685ed099e07a234997')
+      .get('http://localhost:3000/notes/5662591b1ea05bab7821fefb')
       .then(function(response){
         console.log(response)
         self.single = response.data.note[0];
@@ -53,12 +53,13 @@ function NotesController($http){
   }
 
   function editNote(){
-
+    $http
+    .put('http://localhost:3000/notes/5662591b1ea05bab7821fefb')
   }
 
-  function deleteNote() {
+  function deleteNote(note) {
     $http
-    .delete('http://localhost:3000/notes/56625c685ed099e07a234997')
+    .delete('http://localhost:3000/notes/5662591b1ea05bab7821fefb')
     // .delete('http://localhost:3000/notes/' + note._id)
   }
 
