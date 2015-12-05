@@ -12,6 +12,7 @@ function NotesController($http){
   self.addNote = addNote;
   // blank object that will hold form information
   self.newNote = {};
+  self.editedNote = {};
   self.viewNote = viewNote;
   self.single = {};
   self.getNotes = getNotes;
@@ -55,6 +56,10 @@ function NotesController($http){
   function editNote(){
     $http
     .put('http://localhost:3000/notes/5662591b1ea05bab7821fefb')
+    .then(function(response) {
+      console.log('response: ' + response);
+      self.editedNote = response
+    })
   }
 
   function deleteNote(note) {

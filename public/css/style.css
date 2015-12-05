@@ -6,6 +6,10 @@ ul {
   list-style-type: none;
 }
 
+/*::-webkit-input-placeholder {
+  color: black;
+}*/
+
 /*view a single note*/
 #show-note {
   margin-bottom: 100px;
@@ -20,14 +24,14 @@ ul {
   margin-top: 50px;
 }
 
-#new-note-title {
+.form-note-title {
   width: 70%;
   height: 20px;
   display: block;
   margin: 0 auto;
 }
 
-#new-note-body {
+.form-note-body {
   width: 70%;
   height: 500px;
   margin: 0 auto;
