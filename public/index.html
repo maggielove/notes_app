@@ -26,19 +26,27 @@
       <!--  ng-repeat in a div? -->
       <ul id="notes-list">
         <li ng-repeat="note in notes.all ">
-          <h3><a href="#" ng-click="notes.viewNote(note); showbuttons=true">{{note.title}}</a></h3>
-
+          <h3><a href="#" ng-click="notes.viewNote(note)">{{note.title}}</a></h3>
+          <!-- ; showbuttons=true -->
         </li>
       </ul>
       <div id="view-note">
-        <h3>{{notes.single.title}}</h3>
-        <div>
-          {{notes.single.body}}
+        <!-- hide the note when you click the 'edit' or 'new' form buttons -->
+        <div ng-hide="form" >
+          <h3>{{notes.single.title}}</h3>
+          <div>
+            {{notes.single.body}}
+          </div>
         </div>
         <div id="edit-buttons">
-          <span><button ng-click="editform=true">Edit</button></span>
-          <span><button ng-click="showform=true">New Note</button></span>
+        <!-- ng-show="{{notes.single.title}}" -->
+          <span><button ng-click="editform=true; form=true">Edit</button></span>
+          <span><button ng-click="showform=true; form=true">New Note</button></span>
           <span><button ng-click="notes.deleteNote(note)">Delete</button></span>
+          <select ng-controller="ChaptersController as chapters">
+            <option  ng-repeat="chapter in chapters.all">{{chapter.title}}</option>
+            <!-- -->
+          </select>
         </div>
 
 

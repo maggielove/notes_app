@@ -6,6 +6,7 @@ var methodOverride = require('method-override'); //lets you use PUT, DELETE wher
 
 var notesController = require('../controllers/notes');
 var usersController = require('../controllers/users');
+var chaptersController = require('../controllers/chapters')
 
 // http://localhost:3000/notes
 router.route('/notes')
@@ -27,6 +28,9 @@ router.route('/notes/:id')
 
 // router.route('/users')
   // .get(usersCtonroller.findAll)
+
+router.route('/chapters')
+  .get(chaptersController.findAll)
 
 ///// WILL EVERY ROUTE BENEATH THIS BE RESTRICTED TO USERS WITH TOKENS?//////
 // user log in route
