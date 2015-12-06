@@ -2,3 +2,4 @@
 // Assign angular app to a variable so that I can use it with multiple controllers
 // & avoid conflicts
 var angularApp = angular.module('notesApp', [] );
+angularApp.$inject = ['ui.bootstrap'];

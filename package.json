@@ -12,9 +12,9 @@
   "dependencies": {
     "angular": "^1.4.8",
     "angular-material": "^0.11.4",
+    "angular-ui-bootstrap": "^0.14.3",
     "bcrypt": "^0.8.5",
     "body-parser": "^1.14.1",
-    "bootstrap": "^3.3.6",
     "express": "^4.13.3",
     "express-jwt": "^3.3.0",
     "jsonwebtoken": "^5.4.1",
