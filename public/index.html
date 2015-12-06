@@ -2,8 +2,8 @@
 <html ng-app="notesApp">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 
     <link rel="stylesheet" href="css/style.css">
     <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
@@ -24,69 +24,70 @@
       <h2>All Notes</h2>
 
       <!--  ng-repeat in a div? -->
-      <ul>
+      <ul id="notes-list">
         <li ng-repeat="note in notes.all ">
-          <h3>{{note.title}}</h3>
-          <!-- <div>{{note.body}}<div> -->
+          <h3><a href="#" ng-click="notes.viewNote(note); showbuttons=true">{{note.title}}</a></h3>
+
         </li>
       </ul>
-    </section>
+      <div id="view-note">
+        <h3>{{notes.single.title}}</h3>
+        <div>
+          {{notes.single.body}}
+        </div>
+        <div id="edit-buttons">
+          <span><button ng-click="editform=true">Edit</button></span>
+          <span><button ng-click="showform=true">New Note</button></span>
+          <span><button ng-click="notes.deleteNote(note)">Delete</button></span>
+        </div>
 
-   <section id="show-note" ng-controller="NotesController as notes">
-          <!-- Display the note and editing options -->
-          <button ng-click="notes.viewNote(); showbuttons=true">View note</button>
+
+        <form id="edit-form" ng-show="editform" ng-submit="notes.editNote(note)">
           <div>
-            <h3>{{notes.single.title}}</h3>
-            {{notes.single.body}}
+            <label for="title">Title</label>
+            <input ng-model="notes.single.title" type="text" class="form-note-title">
+            <!-- <input value="sample" type="text" class="form-note-title" ng-model="notes.editedNote.title" > -->
+            <!-- "" -->
           </div>
-
-          <div id="edit-buttons" ng-show="showbuttons">
-            <span><button ng-click="editform=true">Edit</button>
-            </span><span><button ng-click="">New Note</button>
-            </span><span><button ng-click="notes.deleteNote(note)">Delete</button></span>
           <div>
-
-          <form id="edit-form" ng-show="editform" ng-submit="notes.editNote()">
-            <div>
-              <label for="title">Title</label>
-              <input ng-model="notes.single.title" type="text" class="form-note-title">
-              <!-- <input value="sample" type="text" class="form-note-title" ng-model="notes.editedNote.title" > -->
-              <!-- "" -->
-            </div>
-            <div>
-              <label for="body">Body</label>
-              <textarea ng-model="notes.single.body" type="text" class="form-note-body"></textarea>
-              <!-- ng-model="notes.editedNote.body" -->
-            </div>
-            <div>
-              <input type="submit" id="update-button" value="Save Changes" class="md-button md-raised">
-            </div>
-          </form>
-          <!-- <span class="glyphicon glyphicon-trash"></span> -->
-          <!-- <h3>{{notes.newNote.title}}</h3>
+            <label for="body">Body</label>
+            <textarea ng-model="notes.single.body" type="text" class="form-note-body"></textarea>
+            <!-- ng-model="notes.editedNote.body" -->
+          </div>
           <div>
-            {{notes.newNote.body}}
-          </div> -->
+            <input type="submit" id="update-button" value="Save Changes" class="md-button md-raised">
+          </div>
+        </form>
+        <!-- <span class="glyphicon glyphicon-trash"></span> -->
+      </div>
+
+      <form id="note-form" ng-show="showform" ng-submit="notes.addNote()">
+        <div>
+          <label for="title">Title</label>
+          <!-- ng-model binds our input to variable newNote  in NotesController -->
+          <input type="text" class="form-note-title" ng-model='notes.newNote.title'>
+        </div>
+        <div>
+          <label for="body">Body</label>
+          <textarea class="form-note-body" ng-model='notes.newNote.body'></textarea>
+        </div>
+        <div>
+          <input type="submit" id="save-button" value="Save Note" class="md-button md-raised">
+        </div>
+      </form>
     </section>
-    <section id="new-note" ng-controller="NotesController as notes">
-        <!-- This button should make a form pop up. -->
-        <button ng-click="showform=true">Add Note</button>
-          <!-- use ng-show to only show form if "Add Note" button is clicked. -->
-          <form id="note-form" ng-show="showform" ng-submit="notes.addNote()">
-            <div>
-              <label for="title">Title</label>
-              <!-- ng-model binds our input to variable newNote  in NotesController -->
-              <input type="text" class="form-note-title" ng-model='notes.newNote.title'>
-            </div>
-            <div>
-              <label for="body">Body</label>
-              <textarea class="form-note-body" ng-model='notes.newNote.body'></textarea>
-            </div>
-            <div>
-              <input type="submit" id="save-button" value="Save Note" class="md-button md-raised">
-            </div>
-          </form>
-    </section>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

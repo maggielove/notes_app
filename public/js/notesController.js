@@ -31,10 +31,10 @@ function NotesController($http){
   };
 
   // view a single note
-  function viewNote(){
+  function viewNote(note){
     $http
       // route hard-corded for now
-      .get('http://localhost:3000/notes/5662591b1ea05bab7821fefb')
+      .get('http://localhost:3000/notes/' + note._id)
       .then(function(response){
         console.log(response)
         self.single = response.data.note[0];
@@ -54,10 +54,10 @@ function NotesController($http){
       // self.newNote = {};
   }
 
-  function editNote(){
+  function editNote(note){
     $http
     // self.single is tied to the ng-model on the edit note form
-    .put('http://localhost:3000/notes/5662591b1ea05bab7821fefb', self.single)
+    .put('http://localhost:3000/notes/' + self.single._id, self.single)
     .then(function(response) {
       // console.log('response: ' + response);
       // self.editedNote = response
@@ -66,8 +66,7 @@ function NotesController($http){
 
   function deleteNote(note) {
     $http
-    .delete('http://localhost:3000/notes/5662591b1ea05bab7821fefb')
-    // .delete('http://localhost:3000/notes/' + note._id)
+    .delete('http://localhost:3000/notes/' + self.single._id)
   }
 
 
