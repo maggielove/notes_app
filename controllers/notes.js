@@ -24,8 +24,8 @@ function showSingle(request, response) {
 
 // write a new note
 function writeNote(request, response) {
-  console.log('hit /notes post');
-  console.log('note json/ request.body.note: ' + request.body);
+  // console.log('hit /notes post');
+  // console.log('note json/ request.body.note: ' + request.body);
   let note = new Note(request.body);
 
   note.save(function(error) {
@@ -42,6 +42,7 @@ function updateNote(request, response){
 
     if(request.body.title) note.title = request.body.title;
     if(request.body.body) note.body = request.body.body;
+    console.log(request.body);
     console.log('edited title: ' + request.body.title);
     console.log('edited body: ' + request.body.body);
 

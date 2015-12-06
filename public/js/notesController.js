@@ -45,6 +45,7 @@ function NotesController($http){
 
   function addNote(){
     $http
+      // self.newNote is tied to the ng-model label on the new note form
       .post('http://localhost:3000/notes', self.newNote)
       .then(function(response) {
         // getNotes();
@@ -55,10 +56,11 @@ function NotesController($http){
 
   function editNote(){
     $http
-    .put('http://localhost:3000/notes/5662591b1ea05bab7821fefb')
+    // self.single is tied to the ng-model on the edit note form
+    .put('http://localhost:3000/notes/5662591b1ea05bab7821fefb', self.single)
     .then(function(response) {
-      console.log('response: ' + response);
-      self.editedNote = response
+      // console.log('response: ' + response);
+      // self.editedNote = response
     })
   }
 

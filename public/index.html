@@ -49,11 +49,14 @@
           <form id="edit-form" ng-show="editform" ng-submit="notes.editNote()">
             <div>
               <label for="title">Title</label>
-              <input type="text" class="form-note-title" ng-model="notes.editedNote.title" placeholder="{{notes.single.title}}">
+              <input ng-model="notes.single.title" type="text" class="form-note-title">
+              <!-- <input value="sample" type="text" class="form-note-title" ng-model="notes.editedNote.title" > -->
+              <!-- "" -->
             </div>
             <div>
               <label for="body">Body</label>
-              <textarea  class="form-note-body" ng-model="notes.editedNote.body" placeholder="{{notes.single.body}}"></textarea>
+              <textarea ng-model="notes.single.body" type="text" class="form-note-body"></textarea>
+              <!-- ng-model="notes.editedNote.body" -->
             </div>
             <div>
               <input type="submit" id="update-button" value="Save Changes" class="md-button md-raised">
