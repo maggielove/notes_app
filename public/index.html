@@ -4,19 +4,20 @@
     <meta charset="utf-8">
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-
+    <title>Notes App</title>
     <link rel="stylesheet" href="css/style.css">
     <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link rel="stylesheet" href="scripts/angular-material/angular-material.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="scripts/angular/angular.js"></script>
     <script src="scripts/angular-material/angular-material.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/chaptersController.js"></script>
     <script src="js/usersController.js"></script>
     <script src="js/notesController.js"></script>
     <!-- <script src="js/bootstrap.min.js"></script> -->
 
-    <title></title>
+
   </head>
   <body>
     <h1>Notes App</h1>
@@ -25,7 +26,7 @@
 
       <!--  ng-repeat in a div? -->
       <ul id="notes-list">
-        <li ng-repeat="note in notes.all ">
+        <li ng-repeat="note in notes.all">
           <h3><a href="#" ng-click="notes.viewNote(note)">{{note.title}}</a></h3>
           <!-- ; showbuttons=true -->
         </li>
@@ -38,16 +39,19 @@
             {{notes.single.body}}
           </div>
         </div>
+
         <div id="edit-buttons">
         <!-- ng-show="{{notes.single.title}}" -->
           <span><button ng-click="editform=true; form=true">Edit</button></span>
           <span><button ng-click="showform=true; form=true">New Note</button></span>
           <span><button ng-click="notes.deleteNote(note)">Delete</button></span>
-          <select ng-controller="ChaptersController as chapters">
-            <option  ng-repeat="chapter in chapters.all">{{chapter.title}}</option>
-            <!-- -->
-          </select>
+          <div ng-controller="ChaptersController as chapters">
+            <select>
+              <option ng-repeat="chapter in chapters.all" ng-model="notes.single.id">{{chapter.title}}</option>
+            </select>
+          </div>
         </div>
+
 
 
         <form id="edit-form" ng-show="editform" ng-submit="notes.editNote(note)">
@@ -84,15 +88,6 @@
         </div>
       </form>
     </section>
-
-
-
-
-
-
-
-
-
 
 
 

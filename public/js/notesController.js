@@ -1,5 +1,5 @@
 'use strict';
-angular.module('notesApp', [])
+angularApp
   .controller('NotesController', NotesController);
 
 //allow http to send calls to notes controller.
@@ -36,7 +36,6 @@ function NotesController($http){
       // route hard-corded for now
       .get('http://localhost:3000/notes/' + note._id)
       .then(function(response){
-        console.log(response)
         self.single = response.data.note[0];
 
         // return self.single = response.data.note;

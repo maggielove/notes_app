@@ -32,6 +32,9 @@ router.route('/notes/:id')
 router.route('/chapters')
   .get(chaptersController.findAll)
 
+router.route('/chapters/:id')
+  .put(chaptersController.changeNotesList)
+
 ///// WILL EVERY ROUTE BENEATH THIS BE RESTRICTED TO USERS WITH TOKENS?//////
 // user log in route
 router.route('/users/authenticate')
