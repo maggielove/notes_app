@@ -24,6 +24,7 @@ ul {
 /*List of notes*/
 #menu{
   margin-top: 50px;
+  position: absolute;
 }
 
 #menu-title {
@@ -36,9 +37,10 @@ ul {
 }
 
 .alert {
-    margin-top: -40px;
+    margin-top: 100px;
     margin-left: 42%;
     display: block;
+    position: absolute;
     /*margin: 0 auto;*/
     /*margin-left: 400px;*/
     width: 200px;
@@ -68,9 +70,9 @@ ul {
   width: 60%;
   height: 80%;
   display: block;
-  margin-right: 200px;
-  margin-top: -50px;
-  position: relative;
+  margin-left: 200px;
+  margin-top: 50px;
+  position: absolute;
   /*border: 1px solid skyblue;*/
 }
 
@@ -80,12 +82,17 @@ ul {
 
 #edit-buttons {
   position: absolute;
-  margin-top: -80px;
-  margin-left: 270px;
+  margin-top: -20px;
+  margin-left: 420px;
 }
 
 .note-form {
-  margin-top: -50px;
+  position: absolute;
+  margin-top: 130px;
+  /*width: 70%;
+  height: 500px;
+  margin: 0 auto;
+  display: block;*/
 }
 
 /*#label-title {
