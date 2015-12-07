@@ -1,16 +1,42 @@
 /*for UI Bootstrap (see documentation)*/
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
-body {
-
+.pull-left {
+  float: left !important;
+}
+.pull-right {
+  float: right !important;
 }
 
 ul {
   list-style-type: none;
 }
 
+#app-title {
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 60px;
+  width: 200px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+/*List of notes*/
+#menu{
+  margin-top: 50px;
+}
+
+#menu-title {
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+#note-link{
+  font-size: 18px;
+}
+
 .alert {
-    margin-top: -200px;
+    margin-top: -40px;
     margin-left: 50%;
     display: block;
     /*margin: 0 auto;*/
@@ -21,9 +47,10 @@ ul {
 }
 
 #notes-list {
+  text-align: left;
   width: 30%;
   height: 100%;
-  margin-left: 0;
+  margin-left: -20px;
 }
 
 #all-notes {
@@ -41,8 +68,8 @@ ul {
   width: 60%;
   height: 80%;
   display: block;
-  margin-left: 35%;
-  margin-top: -12%;
+  margin-right: 200px;
+  margin-top: 100px;
   /*border: 1px solid skyblue;*/
 }
 
@@ -51,7 +78,8 @@ ul {
 }
 
 #edit-buttons {
-  margin-top: -200px;
+  margin-top: -260px;
+  margin-left: 270px;
 }
 
 .note-form {

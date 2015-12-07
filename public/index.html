@@ -7,6 +7,7 @@
     <title>Notes App</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
     <script src="scripts/angular/angular.js"></script>
     <!-- <script src="scripts/angular-material/angular-material.js"></script> -->
@@ -20,29 +21,28 @@
 
   </head>
   <body>
-    <h1>Notes App</h1>
+    <h1 id="app-title">Jottr</h1>
 
     <section id="all-notes" ng-controller="NotesController as notes">
-      <h2>All Notes</h2>
-      <div>
+      <div id="menu">
+      <h2 id="menu-title">Your Notes</h2>
         <!-- <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Notes List</button> -->
         <!-- <div uib-collapse="isCollapsed"> -->
             <ul id="notes-list">
               <li ng-repeat="note in notes.all">
-                <h3><a href="#" ng-click="notes.viewNote(note)">{{note.title}}</a></h3>
+                <h4><a href="#" ng-click="notes.viewNote(note)" id="note-link">{{note.title}}</a></h4>
                 <!-- ;  -->
                 <!-- ; showbuttons=true -->
               </li>
             </ul>
         <!-- </div> -->
       </div>
-      <div class="alert alert-success" role="alert" ng-show="showsuccess">Note Saved!</div>
-      <div class="alert alert-info" role="alert" ng-show="deletenotice">Note Deleted!</div>
-      <div id="view-note">
+
+      <div id="view-note" class="pull-right">
         <div id="edit-buttons">
         <!-- ng-show="{{notes.single.title}}" -->
-          <button type="button" class="btn btn-default" ng-click="editform=true; form=true"><span class="glyphicon glyphicon-edit"></span></button>
-          <span><button type="button" class="btn btn-default" ng-click="showform=true; form=true"><span class="glyphicon glyphicon-pencil"></span></button></span>
+          <button type="button" class="btn btn-default" ng-click="editform=true; form=true; showform=false"><span class="glyphicon glyphicon-edit"></span></button>
+          <span><button type="button" class="btn btn-default" ng-click="showform=true; form=true; editform=false"><span class="glyphicon glyphicon-pencil"></span></button></span>
           <button type="button" class="btn btn-default" ng-click="notes.deleteNote(note); deletenotice=true"><span class="glyphicon glyphicon-trash"></span></button>
           <!-- <div ng-controller="ChaptersController as chapters" noteId="notes.single.id">
             <select>
@@ -93,6 +93,8 @@
 
         </form>
       </div>
+      <div class="alert alert-success" role="alert" ng-show="showsuccess">Note Saved!</div>
+      <div class="alert alert-info" role="alert" ng-show="deletenotice">Note Deleted!</div>
     </section>
 
 
