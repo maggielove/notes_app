@@ -86,13 +86,22 @@ ul {
   margin-left: 420px;
 }
 
+.form-buttons {
+  position: absolute;
+  margin-top: -70px;
+  margin-left: 510px;
+  /*margin-bottom: -100px;*/
+  /*display: inline-block;*/
+  width: 150px;
+}
+
 .note-form {
   position: absolute;
-  margin-top: 130px;
-  /*width: 70%;
+  margin-top: 50px;
+  width: 1000px;
   height: 500px;
-  margin: 0 auto;
-  display: block;*/
+  /*margin: 0 auto;*/
+  display: block;
 }
 
 /*#label-title {
@@ -101,7 +110,7 @@ ul {
 }*/
 
 .body-label{
-  margin-left: 123px;
+  margin-left: 150px;
 }
 
 .form-pair {
@@ -123,13 +132,4 @@ ul {
   margin: 0 auto;
   display: block;
   /*position: absolute;*/
-}
-
-.save-button {
-  width: 50px;
-  height: 35px;
-  margin: 0 auto;
-  margin-left: 200px;
-  margin-top: -48px;
-  display: block;
 }

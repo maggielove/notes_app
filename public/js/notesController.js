@@ -59,7 +59,7 @@ function NotesController($http){
     // self.single is tied to the ng-model on the edit note form
     .put('http://localhost:3000/notes/' + self.single._id, self.single)
     .then(function(response) {
-      getNotes();
+      // getNotes();
       // console.log('response: ' + response);
       // self.editedNote = response
     })
@@ -73,6 +73,20 @@ function NotesController($http){
       // console.log('response from post: ' + response);
     });
   }
+
+
+
+  // show the alert for a saved note
+  function showAlert(){
+    // let showsuccess = undefined;
+    // var showsuccess = "showsuccess";
+    return "showsuccess";
+  }
+
+  setTimeout(showAlert, 3000);
+
+
+
 
   // function collapseMenu() {
   //   this.isCollapsed = true;

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+    <!-- <link rel="stylesheet" type='text/css' href="//cdn.quilljs.com/0.19.10/quill.snow.css"> -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
     <script src="scripts/angular/angular.js"></script>
     <!-- <script src="scripts/angular-material/angular-material.js"></script> -->
@@ -15,6 +16,9 @@
     <script src="js/chaptersController.js"></script>
     <script src="js/usersController.js"></script>
     <script src="js/notesController.js"></script>
+    <!-- <script type="text/javascript" src="src/ng-quill.js"></script> -->
+    <!-- <script src="http://cdn.quilljs.com/0.19.10/quill.min.js"></script> -->
+    <!-- <script src="http://cdn.quilljs.com/latest/quill.js"></script> -->
     <!-- <script src="js/collapseController.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap.min.js"></script>
 
@@ -22,6 +26,29 @@
   </head>
   <body>
     <h1 id="app-title">Jottr</h1>
+
+<!-- <button ng-click="toggle()">Toggle toolbar</button>
+        <div style="width: 500px; height: 300px;">
+            <ng-quill-editor ng-model="message" translations="translations" toolbar="true" show-toolbar="showToolbar" link-tooltip="true" image-tooltip="true" toolbar-entries="font size bold list bullet italic underline strike align color background link image" editor-required="true" required="" error-class="input-error"
+            fontsize-options="fontsizeOptions" fontfamily-options="fontfamilyOptions"></ng-quill-editor>
+        </div> -->
+
+<!-- Quill test (successful) (also had quill library, script and css in header) -->
+    <!-- <div id="toolbar">
+      <button class="ql-bold">Bold</button>
+      <button class="ql-italic">Italic</button>
+    </div>
+
+    <div id="editor">
+      <div>Hello World!</div>
+    </div> -->
+
+      <!-- Initialize Quill editor -->
+      <!-- <script>
+        var editor = new Quill('#editor');
+        editor.addModule('toolbar', { container: '#toolbar' });
+      </script>  -->
+<!-- end successful Quill test -->
 
     <section id="all-notes" ng-controller="NotesController as notes">
       <div id="menu">
@@ -40,8 +67,7 @@
         <div id="edit-buttons">
         <!-- ng-show="{{notes.single.title}}" -->
           <button type="button" class="btn btn-default" ng-click="editform=true; form=true; showform=false"><span class="glyphicon glyphicon-edit"></span></button>
-          <span><button type="button" class="btn btn-default" ng-click="showform=true; form=true; editform=false"><span class="glyphicon glyphicon-pencil"></span></button></span>
-          <button type="button" class="btn btn-default" ng-click="notes.deleteNote(note); deletenotice=true; form=true"><span class="glyphicon glyphicon-trash"></span></button>
+          <button type="button" class="btn btn-default" ng-click="showform=true; form=true; editform=false"><span class="glyphicon glyphicon-pencil"></span></button>
           <!-- <div ng-controller="ChaptersController as chapters" noteId="notes.single.id">
             <select>
               <option ng-repeat="chapter in chapters.all">{{chapter.title}}</option>
@@ -50,6 +76,7 @@
         </div>
         <!-- hide the note when you click the 'edit' or 'new' form buttons -->
         <div ng-hide="form">
+          <!-- form=false -->
           <h3>{{notes.single.title}}</h3>
           <div>
             {{notes.single.body}}
@@ -58,8 +85,9 @@
 
         <form class="note-form" ng-show="editform" ng-submit="notes.editNote(note)">
 
-          <div>
-            <button type="submit" class="save-button btn btn-default" value="Save Changes" ng-click="showsuccess=true; editform=false"><span class="glyphicon glyphicon-floppy-disk"></span>
+          <div class="form-buttons">
+            <button type="button" class="btn btn-default" ng-click="notes.deleteNote(note); deletenotice=true; editform=false; form=false"><span class="glyphicon glyphicon-trash"></span></button>
+            <button type="submit" class="btn btn-default" value="Save Changes" ng-click="notes.showAlert(); editform=false; form=false"><span class="glyphicon glyphicon-floppy-disk"></span></button>
           </div>
           <div>
             <label for="title" class="form-note-title form-pair">Title</label>
@@ -69,15 +97,17 @@
             <!-- "" -->
             <div>
             <label for="body" class="form-pair body-label">Body</label>
-            <textarea ng-model="notes.single.body" type="text" class="form-note-body form-pair"></textarea>
+
+            <textarea id="editor" ng-model="notes.single.body" type="text" class="form-note-body form-pair"></textarea>
           </div>
             <!-- ng-model="notes.editedNote.body" -->
         </form>
         <!-- <span class="glyphicon glyphicon-trash"></span> -->
 
         <form class="note-form" ng-show="showform" ng-submit="notes.addNote()">
-          <div>
-            <button type="submit" class="save-button btn btn-default" ng-click="showsuccess=true; showform=false"><span class="glyphicon glyphicon-floppy-disk"></span></button>
+          <div class="form-buttons">
+            <button type="button" class="btn btn-default" ng-click="notes.deleteNote(note); deletenotice=true; editform=false; form=false"><span class="glyphicon glyphicon-trash"></span></button>
+            <button type="submit" class="btn btn-default" value="Save Changes" ng-click="notes.showAlert(); editform=false; showform=false; form=false"><span class="glyphicon glyphicon-floppy-disk"></span></button>
           </div>
           <div>
             <label for="title" class="form-note-title form-pair">Title</label>
@@ -86,7 +116,7 @@
           </div>
           <div>
             <label for="body" class="form-pair body-label">Body</label>
-            <textarea class="form-note-body form-pair" ng-model='notes.newNote.body'></textarea>
+            <textarea id="editor" class="form-note-body form-pair" ng-model='notes.newNote.body'></textarea>
           </div>
 
         </form>
