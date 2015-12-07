@@ -30,9 +30,7 @@
         <!-- <div uib-collapse="isCollapsed"> -->
             <ul id="notes-list">
               <li ng-repeat="note in notes.all">
-                <h4><a href="#" ng-click="notes.viewNote(note)" id="note-link">{{note.title}}</a></h4>
-                <!-- ;  -->
-                <!-- ; showbuttons=true -->
+                <h4><a ng-click="showform=false; notes.viewNote(note)" ng-href="#" id="note-link">{{note.title}}</a></h4>
               </li>
             </ul>
         <!-- </div> -->
