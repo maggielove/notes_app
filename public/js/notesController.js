@@ -4,6 +4,7 @@ angularApp
 
 //allow http to send calls to notes controller.
 NotesController.$inject = ['$http'];
+// NotesController.$inject = ['Flash'];
 
 function NotesController($http){
   let self = this;
@@ -47,8 +48,8 @@ function NotesController($http){
       // self.newNote is tied to the ng-model label on the new note form
       .post('http://localhost:3000/notes', self.newNote)
       .then(function(response) {
-        // getNotes();
-        // console.log('response from post: ' + response);
+        // run getNotes() again to update the notes list dynamically.
+        getNotes();
       });
       // self.newNote = {};
   }
@@ -66,7 +67,22 @@ function NotesController($http){
   function deleteNote(note) {
     $http
     .delete('http://localhost:3000/notes/' + self.single._id)
+    .then(function(response) {
+      getNotes();
+      // console.log('response from post: ' + response);
+    });
   }
+
+  // function collapseMenu() {
+  //   this.isCollapsed = true;
+  // }
+
+  // function flash(Flash){
+  //   successAlert = function() {
+  //     var message = 'Note saved!'
+  //     Flash.create('success', message, 'custom-class')
+  //   }
+  // }
 
 
 } //ends NotesController function

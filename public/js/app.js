@@ -3,3 +3,5 @@
 // & avoid conflicts
 var angularApp = angular.module('notesApp', [] );
 angularApp.$inject = ['ui.bootstrap'];
+// angularApp.$inject = ['flash'];
+// angularApp.$inject = ['watch'];

@@ -6,17 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"> -->
     <title>Notes App</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="scripts/angular-material/angular-material.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="scripts/angular/angular.js"></script>
     <!-- <script src="scripts/angular-material/angular-material.js"></script> -->
     <script src="js/app.js"></script>
     <script src="js/chaptersController.js"></script>
     <script src="js/usersController.js"></script>
     <script src="js/notesController.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <!-- <script src="js/collapseController.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap.min.js"></script>
 
 
   </head>
@@ -25,20 +24,32 @@
 
     <section id="all-notes" ng-controller="NotesController as notes">
       <h2>All Notes</h2>
-      <!-- <div>
-        <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">All Notes</button> -->
-        <!--  ng-repeat in a div? -->
-
-      <!-- </div> -->
-      <ul id="notes-list" >
-        <!-- uib-collapse="isCollapsed" -->
-        <li ng-repeat="note in notes.all">
-          <h3><a href="#" ng-click="notes.viewNote(note)">{{note.title}}</a></h3>
-          <!-- ; showbuttons=true -->
-        </li>
-      </ul>
-
+      <div>
+        <!-- <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Notes List</button> -->
+        <!-- <div uib-collapse="isCollapsed"> -->
+            <ul id="notes-list">
+              <li ng-repeat="note in notes.all">
+                <h3><a href="#" ng-click="notes.viewNote(note)">{{note.title}}</a></h3>
+                <!-- ;  -->
+                <!-- ; showbuttons=true -->
+              </li>
+            </ul>
+        <!-- </div> -->
+      </div>
+      <div class="alert alert-success" role="alert" ng-show="showsuccess">Note Saved!</div>
+      <div class="alert alert-info" role="alert" ng-show="deletenotice">Note Deleted!</div>
       <div id="view-note">
+        <div id="edit-buttons">
+        <!-- ng-show="{{notes.single.title}}" -->
+          <button type="button" class="btn btn-default" ng-click="editform=true; form=true"><span class="glyphicon glyphicon-edit"></span></button>
+          <span><button type="button" class="btn btn-default" ng-click="showform=true; form=true"><span class="glyphicon glyphicon-pencil"></span></button></span>
+          <button type="button" class="btn btn-default" ng-click="notes.deleteNote(note); deletenotice=true"><span class="glyphicon glyphicon-trash"></span></button>
+          <!-- <div ng-controller="ChaptersController as chapters" noteId="notes.single.id">
+            <select>
+              <option ng-repeat="chapter in chapters.all">{{chapter.title}}</option>
+            </select>
+          </div> -->
+        </div>
         <!-- hide the note when you click the 'edit' or 'new' form buttons -->
         <div ng-hide="form" >
           <h3>{{notes.single.title}}</h3>
@@ -47,21 +58,11 @@
           </div>
         </div>
 
-        <div id="edit-buttons">
-        <!-- ng-show="{{notes.single.title}}" -->
-          <button type="button" class="btn btn-default" ng-click="editform=true; form=true"><span class="glyphicon glyphicon-edit"></span></button>
-          <span><button type="button" class="btn btn-default" ng-click="showform=true; form=true"><span class="glyphicon glyphicon-pencil"></span></button></span>
-          <button type="button" class="btn btn-default" ng-click="notes.deleteNote(note)"><span class="glyphicon glyphicon-trash"></span></button>
-          <div ng-controller="ChaptersController as chapters" noteId="notes.single.id">
-            <select>
-              <option ng-repeat="chapter in chapters.all">{{chapter.title}}</option>
-            </select>
+        <form class="note-form" ng-show="editform" ng-submit="notes.editNote(note)">
+
+          <div>
+            <button type="submit" class="save-button btn btn-default" value="Save Changes" ng-click="showsuccess=true; editform=false"><span class="glyphicon glyphicon-floppy-disk"></span>
           </div>
-        </div>
-
-
-
-        <form id="edit-form" ng-show="editform" ng-submit="notes.editNote(note)">
           <div>
             <label for="title">Title</label>
             <input ng-model="notes.single.title" type="text" class="form-note-title">
@@ -73,13 +74,13 @@
             <textarea ng-model="notes.single.body" type="text" class="form-note-body"></textarea>
             <!-- ng-model="notes.editedNote.body" -->
           </div>
-          <div>
-            <input type="submit" class="save-button" value="Save Changes">
-          </div>
         </form>
         <!-- <span class="glyphicon glyphicon-trash"></span> -->
 
-        <form id="note-form" ng-show="showform" ng-submit="notes.addNote()">
+        <form class="note-form" ng-show="showform" ng-submit="notes.addNote()">
+          <div>
+            <button type="submit" class="save-button btn btn-default" ng-click="showsuccess=true; showform=false"><span class="glyphicon glyphicon-floppy-disk"></span></button>
+          </div>
           <div>
             <label for="title">Title</label>
             <!-- ng-model binds our input to variable newNote  in NotesController -->
@@ -89,9 +90,7 @@
             <label for="body">Body</label>
             <textarea class="form-note-body" ng-model='notes.newNote.body'></textarea>
           </div>
-          <div>
-            <input type="submit" class="save-button" value="Save Note">
-          </div>
+
         </form>
       </div>
     </section>

@@ -4,6 +4,7 @@ angularApp
 
 ChaptersController.$inject = ['$http'];
 
+
 function ChaptersController($http){
   let self = this;
   self.all = [];
