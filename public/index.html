@@ -43,7 +43,7 @@
         <!-- ng-show="{{notes.single.title}}" -->
           <button type="button" class="btn btn-default" ng-click="editform=true; form=true; showform=false"><span class="glyphicon glyphicon-edit"></span></button>
           <span><button type="button" class="btn btn-default" ng-click="showform=true; form=true; editform=false"><span class="glyphicon glyphicon-pencil"></span></button></span>
-          <button type="button" class="btn btn-default" ng-click="notes.deleteNote(note); deletenotice=true"><span class="glyphicon glyphicon-trash"></span></button>
+          <button type="button" class="btn btn-default" ng-click="notes.deleteNote(note); deletenotice=true; form=true"><span class="glyphicon glyphicon-trash"></span></button>
           <!-- <div ng-controller="ChaptersController as chapters" noteId="notes.single.id">
             <select>
               <option ng-repeat="chapter in chapters.all">{{chapter.title}}</option>
@@ -51,7 +51,7 @@
           </div> -->
         </div>
         <!-- hide the note when you click the 'edit' or 'new' form buttons -->
-        <div ng-hide="form" >
+        <div ng-hide="form">
           <h3>{{notes.single.title}}</h3>
           <div>
             {{notes.single.body}}
@@ -64,16 +64,16 @@
             <button type="submit" class="save-button btn btn-default" value="Save Changes" ng-click="showsuccess=true; editform=false"><span class="glyphicon glyphicon-floppy-disk"></span>
           </div>
           <div>
-            <label for="title">Title</label>
-            <input ng-model="notes.single.title" type="text" class="form-note-title">
+            <label for="title" class="form-note-title form-pair">Title</label>
+            <input ng-model="notes.single.title" type="text" class="form-note-title form-pair">
+          </div>
             <!-- <input value="sample" type="text" class="form-note-title" ng-model="notes.editedNote.title" > -->
             <!-- "" -->
+            <div>
+            <label for="body" class="form-pair body-label">Body</label>
+            <textarea ng-model="notes.single.body" type="text" class="form-note-body form-pair"></textarea>
           </div>
-          <div>
-            <label for="body">Body</label>
-            <textarea ng-model="notes.single.body" type="text" class="form-note-body"></textarea>
             <!-- ng-model="notes.editedNote.body" -->
-          </div>
         </form>
         <!-- <span class="glyphicon glyphicon-trash"></span> -->
 
@@ -82,13 +82,13 @@
             <button type="submit" class="save-button btn btn-default" ng-click="showsuccess=true; showform=false"><span class="glyphicon glyphicon-floppy-disk"></span></button>
           </div>
           <div>
-            <label for="title">Title</label>
+            <label for="title" class="form-note-title form-pair">Title</label>
             <!-- ng-model binds our input to variable newNote  in NotesController -->
-            <input type="text" class="form-note-title" ng-model='notes.newNote.title'>
+            <input type="text" class="form-note-title form-pair" ng-model='notes.newNote.title'>
           </div>
           <div>
-            <label for="body">Body</label>
-            <textarea class="form-note-body" ng-model='notes.newNote.body'></textarea>
+            <label for="body" class="form-pair body-label">Body</label>
+            <textarea class="form-note-body form-pair" ng-model='notes.newNote.body'></textarea>
           </div>
 
         </form>

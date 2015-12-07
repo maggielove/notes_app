@@ -59,6 +59,7 @@ function NotesController($http){
     // self.single is tied to the ng-model on the edit note form
     .put('http://localhost:3000/notes/' + self.single._id, self.single)
     .then(function(response) {
+      getNotes();
       // console.log('response: ' + response);
       // self.editedNote = response
     })

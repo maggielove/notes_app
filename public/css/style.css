@@ -37,7 +37,7 @@ ul {
 
 .alert {
     margin-top: -40px;
-    margin-left: 50%;
+    margin-left: 42%;
     display: block;
     /*margin: 0 auto;*/
     /*margin-left: 400px;*/
@@ -69,7 +69,8 @@ ul {
   height: 80%;
   display: block;
   margin-right: 200px;
-  margin-top: 100px;
+  margin-top: -50px;
+  position: relative;
   /*border: 1px solid skyblue;*/
 }
 
@@ -78,13 +79,28 @@ ul {
 }
 
 #edit-buttons {
-  margin-top: -260px;
+  position: absolute;
+  margin-top: -80px;
   margin-left: 270px;
 }
 
 .note-form {
   margin-top: -50px;
 }
+
+/*#label-title {
+  width: 100px;
+  padding-top: 80px;
+}*/
+
+.body-label{
+  margin-left: 123px;
+}
+
+.form-pair {
+  display: inline;
+}
+
 
 /*New note form */
 .form-note-title {
@@ -106,7 +122,7 @@ ul {
   width: 50px;
   height: 35px;
   margin: 0 auto;
-  margin-left: 20%;
-  margin-top: 15px;
+  margin-left: 200px;
+  margin-top: -48px;
   display: block;
 }
