@@ -23,7 +23,7 @@
   </div>
 
   <!-- hide the note when you click the 'edit' or 'new' form buttons -->
-  <div>
+  <div ng-hide="form">
     <!-- form=false -->
     <h3>{{notes.single.title}}</h3>
     <div>
@@ -51,6 +51,3 @@
   </form>
 
 </div>
-
-<div class="alert alert-success" role="alert" ng-show="showsuccess">Note Saved!</div>
-<div class="alert alert-info" role="alert" ng-show="deletenotice">Note Deleted!</div>

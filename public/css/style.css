@@ -12,6 +12,13 @@ ul {
   list-style-type: none;
 }
 
+nav {
+  font-size: 20px;
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
 #app-title {
   font-family: 'Droid Sans', sans-serif;
   font-size: 60px;
@@ -82,13 +89,13 @@ ul {
 
 #edit-buttons {
   position: absolute;
-  margin-top: -20px;
+  margin-top: 10px;
   margin-left: 420px;
 }
 
 .form-buttons {
   position: absolute;
-  margin-top: -70px;
+  margin-top: -40px;
   margin-left: 510px;
   /*margin-bottom: -100px;*/
   /*display: inline-block;*/

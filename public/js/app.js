@@ -18,6 +18,11 @@ function NoteRouter($stateProvider, $urlRouterProvider) {
     url: '/notes',
     templateUrl: 'new.html'
   })
+  // .state('index.edit', {
+  //   url: '/edit',
+  //   templateUrl: 'edit.html',
+  //
+  // })
 
 }
 // angularApp.$inject = ['ngQuill']
