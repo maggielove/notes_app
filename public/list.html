@@ -1,0 +1,56 @@
+<div id="menu">
+<h2 id="menu-title">Your Notes</h2>
+  <!-- <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Notes List</button> -->
+  <!-- <div uib-collapse="isCollapsed"> -->
+      <ul id="notes-list">
+        <li ng-repeat="note in notes.all">
+          <h4><a ng-click="notes.viewNote(note)" ng-href="#" id="note-link">{{note.title}}</a></h4>
+        </li>
+      </ul>
+  <!-- </div> -->
+</div>
+
+<div id="view-note" class="pull-right">
+  <div id="edit-buttons">
+  <!-- ng-show="{{notes.single.title}}" -->
+    <button type="button" class="btn btn-default" ng-click="editform=true; form=true; showform=false"><span class="glyphicon glyphicon-edit"></span></button>
+    <button type="button" class="btn btn-default" ng-click="showform=true; form=true; editform=false"><span class="glyphicon glyphicon-pencil"></span></button>
+    <!-- <div ng-controller="ChaptersController as chapters" noteId="notes.single.id">
+      <select>
+        <option ng-repeat="chapter in chapters.all">{{chapter.title}}</option>
+      </select>
+    </div> -->
+  </div>
+
+  <!-- hide the note when you click the 'edit' or 'new' form buttons -->
+  <div>
+    <!-- form=false -->
+    <h3>{{notes.single.title}}</h3>
+    <div>
+      {{notes.single.body}}
+    </div>
+  </div>
+
+  <form class="note-form" ng-show="editform" ng-submit="notes.editNote(note)">
+
+    <div class="form-buttons">
+      <button type="button" class="btn btn-default" ng-click="notes.deleteNote(note); deletenotice=true; editform=false; form=false"><span class="glyphicon glyphicon-trash"></span></button>
+      <button type="submit" class="btn btn-default" value="Save Changes" ng-click="notes.showAlert(); editform=false; form=false"><span class="glyphicon glyphicon-floppy-disk"></span></button>
+    </div>
+    <div>
+      <label for="title" class="form-note-title form-pair">Title</label>
+      <input ng-model="notes.single.title" type="text" class="form-note-title form-pair">
+    </div>
+      <!-- <input value="sample" type="text" class="form-note-title" ng-model="notes.editedNote.title" > -->
+      <!-- "" -->
+      <div>
+      <label for="body" class="form-pair body-label">Body</label>
+
+      <textarea id="editor" ng-model="notes.single.body" type="text" class="form-note-body form-pair"></textarea>
+    </div>
+  </form>
+
+</div>
+
+<div class="alert alert-success" role="alert" ng-show="showsuccess">Note Saved!</div>
+<div class="alert alert-info" role="alert" ng-show="deletenotice">Note Deleted!</div>

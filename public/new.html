@@ -1,0 +1,20 @@
+
+<form class="note-form" ng-show="form" ng-submit="notes.addNote()">
+  <div class="form-buttons">
+    <button type="button" class="btn btn-default" ng-click="notes.deleteNote(note); deletenotice=true; editform=false; form=false"><span class="glyphicon glyphicon-trash"></span></button>
+    <button type="submit" class="btn btn-default" value="Save Changes" ng-click="notes.showAlert(); editform=false; showform=false; form=false"><span class="glyphicon glyphicon-floppy-disk"></span></button>
+  </div>
+  <div>
+    <label for="title" class="form-note-title form-pair">Title</label>
+    <!-- ng-model binds our input to variable newNote  in NotesController -->
+    <input type="text" class="form-note-title form-pair" ng-model='notes.newNote.title'>
+  </div>
+  <div>
+    <label for="body" class="form-pair body-label">Body</label>
+    <textarea id="editor" class="form-note-body form-pair" ng-model='notes.newNote.body'></textarea>
+  </div>
+
+</form>
+
+<!-- <div class="alert alert-success" role="alert" ng-show="showsuccess">Note Saved!</div>
+<div class="alert alert-info" role="alert" ng-show="deletenotice">Note Deleted!</div> -->

@@ -1,8 +1,25 @@
 //first argument corresponds to what we're putting in html header tag by ng-app
 // Assign angular app to a variable so that I can use it with multiple controllers
 // & avoid conflicts
-var angularApp = angular.module('notesApp', [] );
+var angularApp = angular.module('notesApp', ['ui.router'] )
 angularApp.$inject = ['ui.bootstrap'];
+// angularApp.$inject = ['ui.router'];
+angularApp.config(NoteRouter);
+
+function NoteRouter($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise("/index");
+
+  $stateProvider
+  .state('index', {
+    url: '/',
+    templateUrl:'list.html'
+  })
+  .state('new', {
+    url: '/notes',
+    templateUrl: 'new.html'
+  })
+
+}
 // angularApp.$inject = ['ngQuill']
 // angularApp.config(['ngQuillConfigProvider', function (ngQuillConfigProvider) {
 //                 ngQuillConfigProvider.set([{

@@ -1,5 +1,6 @@
 'use strict';
 let express = require('express');
+let cors = require('cors');
 let logger = require('morgan');
 let request = require('request');
 let path = require('path');
@@ -20,6 +21,8 @@ db.once('open', (callback) => {
 });
 
 let routes = require('./config/routes');
+
+app.use(cors());
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
