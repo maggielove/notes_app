@@ -19,6 +19,7 @@
     "express": "^4.13.3",
     "express-jwt": "^3.3.0",
     "jsonwebtoken": "^5.4.1",
+    "method-override": "^2.3.5",
     "mongoose": "^4.2.8",
     "morgan": "^1.6.1",
     "ng-quill": "^1.1.1",
