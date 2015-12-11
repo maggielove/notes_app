@@ -24,9 +24,11 @@ function NotesController($http){
   // (Other functions are called only when user selects them.)
   getNotes();
   function getNotes(){
+
     $http
       .get('https://jottr-app.herokuapp.com/notes')
       .then(function(response){
+        // $window.location.reload();
         self.all = response.data.notes;
       });
   };
