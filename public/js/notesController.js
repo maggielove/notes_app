@@ -25,7 +25,7 @@ function NotesController($http){
   getNotes();
   function getNotes(){
     $http
-      .get('http://localhost:3000/notes')
+      .get('https://jottr-app.herokuapp.com/notes')
       .then(function(response){
         self.all = response.data.notes;
       });
@@ -35,7 +35,7 @@ function NotesController($http){
   function viewNote(note){
     $http
       // route hard-corded for now
-      .get('http://localhost:3000/notes/' + note._id)
+      .get('https://jottr-app.herokuapp.com/notes/' + note._id)
       .then(function(response){
         self.single = response.data.note[0];
 
@@ -46,7 +46,7 @@ function NotesController($http){
   function addNote(){
     $http
       // self.newNote is tied to the ng-model label on the new note form
-      .post('http://localhost:3000/notes', self.newNote)
+      .post('https://jottr-app.herokuapp.com/notes', self.newNote)
       .then(function(response) {
         // run getNotes() again to update the notes list dynamically.
         getNotes();
@@ -57,7 +57,7 @@ function NotesController($http){
   function editNote(note){
     $http
     // self.single is tied to the ng-model on the edit note form
-    .put('http://localhost:3000/notes/' + self.single._id, self.single)
+    .put('https://jottr-app.herokuapp.com/notes/' + self.single._id, self.single)
     .then(function(response) {
       // getNotes();
       // console.log('response: ' + response);
@@ -67,7 +67,7 @@ function NotesController($http){
 
   function deleteNote(note) {
     $http
-    .delete('http://localhost:3000/notes/' + self.single._id)
+    .delete('https://jottr-app.herokuapp.com/notes/' + self.single._id)
     .then(function(response) {
       getNotes();
       // console.log('response from post: ' + response);
